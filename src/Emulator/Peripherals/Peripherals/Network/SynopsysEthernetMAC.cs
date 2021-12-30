@@ -390,7 +390,7 @@ namespace Antmicro.Renode.Peripherals.Network
 
                     packetSent = true;
                     //We recreate the EthernetFrame because the CRC should be appended after creating inner checksums.
-                    if(!Misc.TryCreateFrameOrLogWarning(this, packetData.ToArray(), out var frameWithCrc, addCrc: true))
+                    if(!Misc.TryCreateFrameOrLogWarning(this, frame.Bytes, out var frameWithCrc, addCrc: true))
                     {
                         continue;
                     }
